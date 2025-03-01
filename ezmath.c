@@ -1,5 +1,11 @@
-#include <ncurses.h>
 #include <stdlib.h>
+#include <ncurses.h>
+
+void clearlinetoline(int ln1, int ln2) {
+  for (int i = ln1; i <= ln2; i++) {
+    move(i, 0); clrtoeol();
+  }
+}
 
 int main() {
   float options[] = {0, 0};
@@ -18,13 +24,10 @@ int main() {
       attroff(A_REVERSE);
     }
 
-    move(3, 0); clrtoeol();
+    clearlinetoline(3, 6);
     mvprintw(3, 0, "SUM(+): %.3f", options[0]+options[1]);
-    move(4, 0); clrtoeol();
     mvprintw(4, 0, "DIF(-): %.3f", options[0]-options[1]);
-    move(5, 0); clrtoeol();
     mvprintw(5, 0, "PRO(x): %.3f", options[0]*options[1]);
-    move(6, 0); clrtoeol();
     mvprintw(6, 0, "QUO(/): %.3f", options[0]/options[1]);
 
     refresh();
