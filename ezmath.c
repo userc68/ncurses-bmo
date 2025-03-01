@@ -18,9 +18,13 @@ int main() {
       attroff(A_REVERSE);
     }
 
+    move(3, 0); clrtoeol();
     mvprintw(3, 0, "SUM(+): %.3f", options[0]+options[1]);
+    move(4, 0); clrtoeol();
     mvprintw(4, 0, "DIF(-): %.3f", options[0]-options[1]);
+    move(5, 0); clrtoeol();
     mvprintw(5, 0, "PRO(x): %.3f", options[0]*options[1]);
+    move(6, 0); clrtoeol();
     mvprintw(6, 0, "QUO(/): %.3f", options[0]/options[1]);
 
     refresh();
