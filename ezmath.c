@@ -8,7 +8,7 @@ void clearlinetoline(int ln1, int ln2) {
 }
 
 int main() {
-  float options[] = {0, 0};
+  double options[] = {0, 0};
   int highlight = 0, ch;
 
   initscr();
@@ -44,10 +44,10 @@ int main() {
       case '\n':
         echo();
         curs_set(1);
-        char input[10];
+        char input[8];
         move(highlight, 0);
         clrtoeol();
-        getnstr(input, 10); 
+        getnstr(input, sizeof(input)); 
         options[highlight] = atof(input); 
         noecho();
         curs_set(0);
